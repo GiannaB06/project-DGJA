@@ -1,27 +1,43 @@
-import React from 'react';
-import { useState} from 'react';
+import { useState } from "react";
+import { AddCategory } from "./components/AddCategory";
+
 export const ProyectoGif = () => {
-    const [categories, setCategories] = useState(['One Punch'])
-return (
+
+
+const [categories, setCategories] = useState(["Barbie","hola"]);
+const onAddCategory = () => {
+    setCategories([...categories,"POU"]);
+
+
+}
+
+return(
     <>
-    <div>
-      {/*titulo*/}
-      <h1>GIANNAAAAAAAAAAAAAAAAAAAAAA</h1>
-      {/*Input*/}
-      
-      {/*Listado de Gifs */}
-      {/*Gif Item */}
-    </div>
+        {/*titulo*/}
+        <h1>GifExpert</h1>
+
+        {/*input*/} 
+        <AddCategory/>
+
+        <button onClick={ onAddCategory }>Agregar</button> 
+
+        <ol>
+            {categories.map(category=> {
+                return <li key={ category }> {category} </li>
+
+
+            })
+            }
+           
+    
+
+
+        </ol>
+
+    
+    
     
     </>
 )
-}
 
-/*
-export default ProyectoGif
-function (a){
-    return a + 100;
-}
-
-(a) => a + 100;
-*/
+}; 
