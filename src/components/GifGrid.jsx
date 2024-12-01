@@ -4,29 +4,32 @@ import { GifItem } from './GifItem';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 // Definimos un componente funcional llamado GifGrid que toma una categoría como prop
 export const GifGrid = ({ category }) => {
-// Usamos el hook useFetchGifs para obtener las imágenes y el estado de carga
+ // Usamos el hook useFetchGifs para obtener las imágenes y el estado de carga
 const { images, isLoading } = useFetchGifs( category );
-// Devolvemos el JSX que se renderizará
+
+ // Devolvemos el JSX que se renderizará
 return (
 <>
-{/* // Mostramos la categoría */}
+ {/* // Mostramos la categoría */}
 <h3>{ category }</h3>
-{/* // Si está cargando, mostramos un mensaje de carga */}
+ {/* // Si está cargando, mostramos un mensaje de carga */}
 {
 isLoading && ( <h2>Cargando...</h2> )
 }
+
 {/* // Creamos un div con la clase card-grid */}
 <div className="card-grid">
-{/* // Mapeamos las imágenes a componentes GifItem, cada uno con una
+{/* // Mapeamos las imágenes a componentes GifItem, cada uno con una 
 clave única y las propiedades de la imagen */}
 {
 images.map( ( image ) => (
-<GifItem
+<GifItem 
 key={ image.id }
 { ...image }
 />
 ))
 }
+
 </div>
 </>
 )
